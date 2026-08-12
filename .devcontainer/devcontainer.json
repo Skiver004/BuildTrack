@@ -1,0 +1,35 @@
+{
+  "name": "BuildTrack",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [5173, 5000, 5432],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Web Dev",
+      "onAutoForward": "notify",
+      "visibility": "public"
+    },
+    "5000": {
+      "label": "API",
+      "onAutoForward": "notify",
+      "visibility": "public"
+    },
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "silent",
+      "visibility": "private"
+    }
+  },
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: buildtrack-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: buildtrack
+      POSTGRES_PASSWORD: buildtrack_dev
+      POSTGRES_DB: buildtrack
+    ports:
+      - "5432:5432"
+    volumes:
+      - buildtrack_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  buildtrack_postgres_data:
